@@ -1,9 +1,5 @@
-./bin/web-component-fetch.js -u \
-    Polymer/paper-button#0.8-addmain \
-    Polymer/font-roboto#bowerjson \
-    Polymer/core-icons#0.8-bowermain
+rm -rf demo
+mkdir demo
+cd demo
+../bin/web-component-workspace.js install -r Polymer/polymer
 
-./bin/web-component-fetch.js -p debug.html \
-    Polymer/paper-button#0.8-addmain \
-    Polymer/font-roboto#bowerjson \
-    Polymer/core-icons#0.8-bowermain

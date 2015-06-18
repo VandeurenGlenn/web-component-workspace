@@ -1,16 +1,17 @@
 {
-  "name": "web-component-fetch",
+  "name": "web-component-workspace",
   "version": "1.0.0",
-  "description": "Quick production polymers.",
+  "description": "Quick bower-based workspace buidler.",
   "bin": {
-    "web-component-fetch": "bin/web-component-fetch.js"
+    "wcw": "bin/web-component-workspace.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "jshint": "node_modules/.bin/jshint bin/ lib/",
+    "test": "npm run jshint && bin/web-component-workspace.js install --repo PolymerElements/iron-component-page -d workdir"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PolymerLabs/web-component-fetch.git"
+    "url": "https://github.com/PolymerLabs/web-component-workspace.git"
   },
   "author": "The Polymer Project Authors",
   "license": "BSD-3-Clause",
@@ -20,17 +21,14 @@
   "homepage": "https://github.com/PolymerLabs/web-component-fetch",
   "dependencies": {
     "bower": "^1.4.1",
-    "commander": "^2.7.1",
-    "del": "^1.1.1",
-    "gulp": "^3.8.11",
-    "gulp-concat": "^2.5.2",
-    "gulp-filter": "^2.0.2",
-    "gulp-replace": "^0.5.3",
-    "gulp-shell": "^0.4.0",
-    "gulp-util": "^3.0.4",
-    "main-bower-files": "^2.6.2",
-    "polyclean": "0.0.1",
-    "through2": "^0.6.5",
-    "vulcanize": "^1.1.0"
+    "nedb": "^1.1.2",
+    "nodegit": "^0.4.1",
+    "path": "^0.11.14",
+    "shelljs": "^0.5.1",
+    "temp": "^0.8.3",
+    "yargs": "^3.11.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0"
   }
 }
