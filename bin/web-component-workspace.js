@@ -25,6 +25,10 @@ var repo = function repo(yargs) {
 var db = new WebComponentDb(path.join(process.cwd(), '.wcw.db'));
 var commands = new Commands(db, process.cwd());
 
+var errHandler = function (err) {
+  console.log(err.stack);
+}
+
 var argv = yargs
   .usage('$0 <command>')
   .demand(1, 'Command must be provided.')
@@ -41,8 +45,8 @@ var argv = yargs
   .command('update',
     'updates the master branch of all repos without changing the working ' +
     'branch', function(yargs){
-      commands.update();
-    });
+        commands.update().catch(errHandler);
+    })
   .command('rebase <gitargs>',
    'Rebase all repositories. If no git args are provided, rebase against ' +
    'master')
