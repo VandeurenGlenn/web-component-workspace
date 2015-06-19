@@ -37,20 +37,26 @@ var argv = yargs
     function(yargs) {
       argv = repo(yargs).argv;
       try {
-        commands.install(argv.repo);
+        if (typeof argv.repo == "string") {
+          commands.install(argv.repo);
+        } else {
+          argv.repo.forEach(function(repo){
+            commands.install(repo);
+          });
+        }
       } catch (err) {
         console.log(err.stack);
       }
     })
   .command('update',
-    'updates the master branch of all repos without changing the working ' +
-    'branch', function(yargs){
+    'updates the master branch of all repos',
+    function(yargs){
         commands.update().catch(errHandler);
     })
-  .command('rebase <gitargs>',
-   'Rebase all repositories. If no git args are provided, rebase against ' +
-   'master')
-  .command('test <cmd>',
-   'Test all repositories using the specified command. Returns true if ' +
-   'all tests return true.')
+  // .command('rebase <gitargs>',
+  //  'Rebase all repositories. If no git args are provided, rebase against ' +
+  //  'master')
+  // .command('test <cmd>',
+  //  'Test all repositories using the specified command. Returns true if ' +
+  //  'all tests return true.')
   .argv;
