@@ -22,9 +22,8 @@ var repo = function repo(yargs) {
     .alias('repo', 'r')
     .demand('r')
 }
-console.log(process.cwd());
 var db = new WebComponentDb(path.join(process.cwd(), '.wcw.db'));
-var commands = new Commands(db);
+var commands = new Commands(db, process.cwd());
 
 var argv = yargs
   .usage('$0 <command>')
@@ -34,14 +33,16 @@ var argv = yargs
     function(yargs) {
       argv = repo(yargs).argv;
       try {
-        commands.install(argv.repo, process.cwd());
+        commands.install(argv.repo);
       } catch (err) {
         console.log(err.stack);
       }
     })
   .command('update',
     'updates the master branch of all repos without changing the working ' +
-    'branch')
+    'branch', function(yargs){
+      commands.update();
+    });
   .command('rebase <gitargs>',
    'Rebase all repositories. If no git args are provided, rebase against ' +
    'master')
