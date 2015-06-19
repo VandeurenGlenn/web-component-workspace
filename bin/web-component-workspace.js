@@ -20,14 +20,14 @@ var repo = function repo(yargs) {
     .string('repo')
     .describe('repo', 'repository to install')
     .alias('repo', 'r')
-    .demand('r')
-}
+    .demand('r');
+};
 var db = new WebComponentDb(path.join(process.cwd(), '.wcw.db'));
 var commands = new Commands(db, process.cwd());
 
 var errHandler = function (err) {
   console.log(err.stack);
-}
+};
 
 var argv = yargs
   .usage('$0 <command>')

@@ -16,9 +16,9 @@
   "author": "The Polymer Project Authors",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/PolymerLabs/web-component-fetch/issues"
+    "url": "https://github.com/PolymerLabs/web-component-workspace/issues"
   },
-  "homepage": "https://github.com/PolymerLabs/web-component-fetch",
+  "homepage": "https://github.com/PolymerLabs/web-component-workspace",
   "dependencies": {
     "bower": "^1.4.1",
     "nedb": "^1.1.2",
