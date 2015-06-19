@@ -8,7 +8,7 @@
   "scripts": {
     "jshint": "node_modules/.bin/jshint bin/ lib/",
     "test": "npm run jshint && bin/web-component-workspace.js install --repo PolymerElements/iron-component-page -d workdir",
-    "publish": "git push && git push --tags && npm publish",
+    "publish": "git push && git push --tags",
     "release-patch": "mversion patch -m && npm run publish",
     "release-minor": "mversion minor -m && npm run publish",
     "release-major": "mversion patch -m && npm run publish"
