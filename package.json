@@ -8,10 +8,10 @@
   "scripts": {
     "jshint": "node_modules/.bin/jshint bin/ lib/",
     "test": "npm run jshint",
-    "publish": "git push && git push --tags",
-    "release-patch": "mversion patch -m && npm run publish",
-    "release-minor": "mversion minor -m && npm run publish",
-    "release-major": "mversion patch -m && npm run publish"
+    "push": "git push && git push --tags && npm publish",
+    "release-patch": "mversion patch -m && npm run push",
+    "release-minor": "mversion minor -m && npm run push",
+    "release-major": "mversion patch -m && npm run push"
   },
   "repository": {
     "type": "git",
